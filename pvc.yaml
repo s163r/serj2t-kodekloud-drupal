@@ -9,3 +9,6 @@ spec:
   resources:
     requests:
       storage: 3Gi
+  dataSource:
+    name: existing-src-pvc-name
+    kind: PersistentVolumeClaim
