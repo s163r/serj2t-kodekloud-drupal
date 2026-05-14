@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: drupal-mysql
+  name: drupal-mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: drupal-mysql
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: drupal-mysql
+    spec:
+      volumes:
+       - name: myvol
+         persistentVolumeClaim:
+           claimName: drupal-mysql-pvc
+      containers:
+      - image: mysql:5.7
+        name: mysql
+        resources: {}
+        volumeMounts:
+          - name: myvol
+            mountPath: /var/lib/mysql
+#        env:
+#          - name: MYSQL_ALLOW_EMPTY_PASSWORD
+#            value: true
+status: {} 
