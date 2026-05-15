@@ -6,3 +6,5 @@ k expose deployment drupal-mysql --name=drupal-mysql-service --port=3306
 ```
 
 after edit node port drupal-service
+
+db host is: drupal-mysql-service.default.svc.cluster.local
