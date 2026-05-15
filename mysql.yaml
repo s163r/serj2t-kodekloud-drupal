@@ -26,7 +26,13 @@ spec:
         volumeMounts:
           - name: myvol
             mountPath: /var/lib/mysql
-#        env:
-#          - name: MYSQL_ALLOW_EMPTY_PASSWORD
-#            value: true
-status: {} 
+        env:
+          - name: MYSQL_ALLOW_EMPTY_PASSWORD
+            value: "yes"
+          - name: MYSQL_USER
+            value: "user"
+          - name: MYSQL_PASSWORD
+            value: "pass"
+        ports:
+          - containerPort: 3306
+status: {}
