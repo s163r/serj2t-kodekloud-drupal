@@ -10,6 +10,9 @@ spec:
   - ReadWriteOnce
   local:
     path: /drupal-mysql-data
+  claimRef:
+    name: drupal-mysql-pvc
+    namespace: default
   nodeAffinity:
     required:
       nodeSelectorTerms:
