@@ -8,16 +8,5 @@ spec:
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce
-  local:
+  hostPath:
     path: /drupal-mysql-data
-  claimRef:
-    name: drupal-mysql-pvc
-    namespace: default
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - jump-host
